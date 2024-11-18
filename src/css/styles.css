@@ -1,0 +1,247 @@
+@charset "UTF-8";
+/*----- Global -----*/
+/*----- Fonts & Icons -----*/
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+*::selection {
+  background-color: #0F172A;
+  color: #fdfdfd;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #0F172A;
+  color: #fdfdfd;
+  background-image: url("/images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-blend-mode: multiply;
+  box-sizing: border-box;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+a,
+a:visited {
+  color: #f6f6f6;
+}
+
+a:hover,
+a:focus-visible {
+  color: #f6f6f6;
+}
+
+h1, h2, h3 {
+  text-transform: capitalize;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+p {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  text-wrap: pretty;
+}
+
+button {
+  cursor: pointer;
+}
+
+.error-msg {
+  display: inline-block;
+  background-color: #fdfdfd;
+  color: firebrick;
+  padding: 0.25em;
+  margin-bottom: 0.5em;
+}
+
+.icon-button {
+  width: 3rem;
+  height: 3rem;
+  font-size: 2.5rem;
+  background-color: transparent;
+  color: #fdfdfd;
+  display: grid;
+  place-content: center;
+  transition: 0.3s linear all;
+}
+
+.icon-button[disabled] {
+  visibility: hidden;
+}
+
+.icon-button:hover,
+.icon-button:focus-visible {
+  transform: scale(1.2);
+}
+
+@media all and (max-width: 575px) {
+  p {
+    font-size: 1rem;
+  }
+}
+/*----- Includes -----*/
+.text-center {
+  text-align: center;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.capital {
+  text-transform: capitalize;
+}
+
+.caps {
+  text-transform: uppercase;
+}
+
+.over-x {
+  overflow-x: hidden;
+}
+
+.over-y {
+  overflow-y: hidden;
+}
+
+.over-hidden {
+  overflow: hidden;
+}
+
+/*----- Components -----*/
+/*----- Includes -----*/
+.public-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.public-main {
+  width: 100%;
+  flex-grow: 1;
+  border-top: 2px solid #fdfdfd;
+  border-bottom: 2px solid #fdfdfd;
+  padding: 1rem 0;
+}
+
+.public-address {
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+
+/*----- Includes -----*/
+.dashboard-footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  font-size: 1rem;
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  background-color: #0F172A;
+  padding: 0.75rem 0.5em;
+  border-top: 1px solid #fdfdfd;
+  gap: 1em;
+}
+.dashboard-footer p {
+  font-family: "Ubuntu Mono", monospace;
+  margin-bottom: 0;
+}
+
+.dashboard-footer-button {
+  font-size: 1rem;
+  width: auto;
+  height: auto;
+}
+
+/*----- Includes -----*/
+.dashboard-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #0F172A;
+  padding: 0.25rem 0.5rem;
+  border-bottom: 1px solid #fdfdfd;
+}
+
+.dashboard-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.dashboard-header-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+
+/*----- Includes -----*/
+.dashboard-container {
+  min-height: 90vh;
+  padding: 0.75rem 0.5rem 0.5rem;
+}
+
+/*----- Views -----*/
+/*----- Includes -----*/
+.login {
+  flex-grow: 1;
+  border-top: 2px solid var(--BORDER-COLOR);
+  border-bottom: 2px solid var(--BORDER-COLOR);
+  padding: 1em 0;
+}
+
+/*----- Includes -----*/
+.welcome-section {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.welcome-section p.date {
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 1.1rem;
+}
+
+.welcome-section a::before {
+  content: "➜ ";
+}
+
+/*# sourceMappingURL=styles.css.map */

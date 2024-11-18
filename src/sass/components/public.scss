@@ -1,0 +1,25 @@
+@use '../includes/classes';
+@use '../includes/colors' as color;
+@use '../includes/mixins' as mx;
+@use '../includes/typography' as font;
+@use '../includes/variables' as var;
+
+.public-section {
+  min-height: 100vh;
+  @include mx.flexColCenter();
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.public-main {
+  width: 100%;
+  flex-grow: 1;
+  border-top: 2px solid color.$white;
+  border-bottom: 2px solid color.$white;
+  padding: 1rem 0;
+}
+
+.public-address {
+  margin-top: 1rem;
+  line-height: 1.5;
+}

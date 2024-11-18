@@ -6,8 +6,8 @@ const Welcome = () => {
 
   const content = (
       <section className="welcome-section">
-          <p>{today}</p>
-          <h1>Welcome!</h1>
+          <p className="date">{today}</p>
+          <h2>Welcome!</h2>
           <p><Link to="/dashboard/notes">View workNotes</Link></p>
           <p><Link to="/dashboard/users">View User Settings</Link></p>
       </section>

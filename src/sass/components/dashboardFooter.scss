@@ -1,0 +1,28 @@
+@use '../includes/classes';
+@use '../includes/colors' as color;
+@use '../includes/mixins' as mx;
+@use '../includes/typography' as font;
+@use '../includes/variables' as var;
+
+.dashboard-footer {
+  @include mx.flexRow(flex-start, center);
+  flex-wrap: nowrap;
+  font-size: 1rem;
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  background-color: color.$bgColor;
+  padding: 0.75rem 0.5em;
+  border-top: 1px solid color.$white;
+  gap: 1em;
+  p {
+    font-family: font.$monoFont;
+    margin-bottom: 0;
+  }
+}
+
+.dashboard-footer-button {
+  font-size: 1rem;
+  width: auto;
+  height: auto;
+}

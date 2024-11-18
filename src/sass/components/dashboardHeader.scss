@@ -1,0 +1,25 @@
+@use '../includes/classes';
+@use '../includes/colors' as color;
+@use '../includes/mixins' as mx;
+@use '../includes/typography' as font;
+@use '../includes/variables' as var;
+
+.dashboard-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: color.$bgColor;
+  padding: 0.25rem 0.5rem;
+  border-bottom: 1px solid color.$white;
+}
+
+.dashboard-header-container {
+  @include mx.flexRow(var.$between, center);
+  flex-wrap: wrap;
+}
+
+.dashboard-header-nav {
+  @include mx.flexRow(flex-end, center);
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}

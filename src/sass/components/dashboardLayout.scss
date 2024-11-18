@@ -1,0 +1,10 @@
+@use '../includes/classes';
+@use '../includes/colors' as color;
+@use '../includes/mixins' as mx;
+@use '../includes/typography' as font;
+@use '../includes/variables' as var;
+
+.dashboard-container {
+  min-height: 90vh;
+  padding: 0.75rem 0.5rem 0.5rem;
+}

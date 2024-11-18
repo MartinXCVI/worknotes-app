@@ -10,7 +10,7 @@ const Public = () => {
 				<h1>Welcome to <span className="nowrap">Company!</span></h1>
 			</header>
 			<main className="public-main">
-				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut ducimus expedita labore tempora magnam temporibus.</p>
+				<p>This is simply and nothing more than just a brief and effective description of what the company is actually about</p>
 				<address className="public-address">
 					Company Name<br />
 					Street Name, 123<br />

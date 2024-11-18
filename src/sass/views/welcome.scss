@@ -1,0 +1,19 @@
+@use '../includes/classes';
+@use '../includes/colors' as color;
+@use '../includes/mixins' as mx;
+@use '../includes/typography' as font;
+@use '../includes/variables' as var;
+
+.welcome-section {
+  min-height: 50vh;
+  @include mx.flexColCenter();
+  gap: 1rem;
+  p.date {
+    font-family: font.$monoFont;
+    font-size: 1.1rem;
+  }
+}
+
+.welcome-section a::before {
+  content: "➜ "
+}
