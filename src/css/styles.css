@@ -34,6 +34,12 @@ body {
   box-sizing: border-box;
 }
 
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
 input,
 button,
 textarea,
@@ -99,6 +105,12 @@ button {
 .icon-button:hover,
 .icon-button:focus-visible {
   transform: scale(1.2);
+}
+
+thead,
+tbody,
+tr {
+  display: contents;
 }
 
 @media all and (max-width: 575px) {
@@ -215,6 +227,69 @@ button {
 .dashboard-container {
   min-height: 90vh;
   padding: 0.75rem 0.5rem 0.5rem;
+  flex-grow: 1;
+}
+
+/*----- Includes -----*/
+.table {
+  font-size: 1rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  color: #151515;
+  gap: 0.1em;
+}
+
+.table-button {
+  padding: 0.25em;
+  font-size: 1.5rem;
+  color: #151515;
+}
+
+.table-thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.table-th,
+.table-cell {
+  background-color: #fdfdfd;
+  text-align: left;
+  border: 1px solid #151515;
+  padding: 0.5em;
+}
+
+.table-cell:last-child {
+  display: grid;
+  place-content: center;
+}
+
+.table-cell-inactive {
+  background-color: #d3d3d3;
+}
+
+@media all and (max-width: 767px) {
+  .table {
+    font-size: 1.5rem;
+  }
+}
+@media all and (min-width: 767px) {
+  .table-notes {
+    grid-template-columns: repeat(3, 1fr) 2fr repeat(2, 1fr);
+  }
+}
+/*----- Includes -----*/
+.note-status {
+  font-weight: bold;
+}
+
+.note-status-open {
+  color: #a01919;
+}
+
+.note-status-completed {
+  color: #00ce67;
 }
 
 /*----- Views -----*/

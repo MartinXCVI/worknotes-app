@@ -34,6 +34,12 @@ body {
   box-sizing: border-box;
 }
 
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
 input,
 button,
 textarea,
@@ -99,6 +105,12 @@ button {
 .icon-button:hover,
 .icon-button:focus-visible {
   transform: scale(1.2);
+}
+
+thead,
+tbody,
+tr {
+  display: contents;
 }
 
 @media all and (max-width: 575px) {

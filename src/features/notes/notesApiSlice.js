@@ -14,14 +14,16 @@ export const notesApiSlice = apiSlice.injectEndpoints({
     getNotes: builder.query({
       query: () => '/notes',
       validateStatus: (response, result) => {
-        return response.status === 200 && !result.isError
+          return response.status === 200 && !result.isError
       },
       keepUnusedDataFor: 5,
       transformResponse: responseData => {
-        const loadedNotes = responseData.map(note => {
-          note.id = note._id
-          return note
-        })
+        const loadedNotes = responseData.map((note, index) => {
+          return {
+            ...note,
+            id: note._id || `${index}`, // Fallback for an eventual missing _id
+          };
+        });
         return notesAdapter.setAll(initialState, loadedNotes)
       },
       providesTags: (result, error, arg) => {
@@ -33,7 +35,7 @@ export const notesApiSlice = apiSlice.injectEndpoints({
         } else return [{ type: 'Note', id: 'LIST' }]
       }
     }),
-  }),
+  }), // End of endpoints' builder
 })
 
 export const { useGetNotesQuery } = notesApiSlice

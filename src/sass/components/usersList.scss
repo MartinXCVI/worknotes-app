@@ -1,0 +1,58 @@
+@use '../includes/classes';
+@use '../includes/colors' as color;
+@use '../includes/mixins' as mx;
+@use '../includes/typography' as font;
+@use '../includes/variables' as var;
+
+
+.table {
+  font-size: 1rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  color: color.$black;
+  gap: 0.1em;
+}
+
+.table-button {
+  padding: 0.25em;
+  font-size: 1.5rem;
+  color: color.$black;
+}
+
+.table-thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.table-th,
+.table-cell {
+  background-color: color.$white;
+  text-align: left;
+  border: 1px solid color.$black;
+  padding: 0.5em;
+}
+
+.table-cell:last-child {
+  display: grid;
+  place-content: center;
+}
+
+.table-cell-inactive {
+  background-color: color.$softGrey;
+}
+
+@media all and (max-width: 767px) {
+
+  .table {
+    font-size: 1.5rem;
+  }
+}
+
+@media all and (min-width: 767px) {
+
+  .table-notes {
+    grid-template-columns: repeat(3, 1fr) 2fr repeat(2, 1fr);
+  }
+}

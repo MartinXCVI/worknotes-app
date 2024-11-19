@@ -1,0 +1,24 @@
+@use '../includes/classes';
+@use '../includes/colors' as color;
+@use '../includes/mixins' as mx;
+@use '../includes/typography' as font;
+@use '../includes/variables' as var;
+
+
+// .note-created,
+// .note-updated,
+// .note-username {
+//   display: none;
+// }
+
+.note-status {
+  font-weight: bold;
+}
+
+.note-status-open {
+  color: color.$errorRed;
+}
+
+.note-status-completed {
+  color: color.$successGreen;
+}
