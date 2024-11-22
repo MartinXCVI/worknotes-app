@@ -145,7 +145,7 @@ const NewUserForm = () => {
           className={`form-select ${validRolesClass}`}
           multiple={true}
           size="3"
-          value={roles}
+          value={[roles]}
           onChange={handleRolesChange}
         >
           {options}
