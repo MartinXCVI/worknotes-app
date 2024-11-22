@@ -2,14 +2,14 @@
 import { useState, useEffect } from 'react'
 
 // Redux imports
-import { useAddNewUserMutation } from './usersApiSlice'
+import { useUpdateUserMutation, useDeleteUserMutation } from './usersApiSlice'
 
 // React router imports
 import { useNavigate } from 'react-router-dom'
 
 // Font Awesome imports
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSave } from '@fortawesome/free-solid-svg-icons'
+import { faSave, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 
 // 'ROLES' object import
 import { ROLES } from '../../config/roles'
@@ -18,25 +18,36 @@ import { ROLES } from '../../config/roles'
 const userRegex = /^[A-z]{3,20}$/
 const passRegex = /^[A-z0-9!@#$%]{4,12}$/
 
-const NewUserForm = () => {
+
+const EditUserForm = ({ user }) => {
 
   const [
-    addNewUser,
+    updateUser,
     {
       isLoading,
       isSuccess,
       isError,
       error
     }
-  ] = useAddNewUserMutation()
+  ] = useUpdateUserMutation()
+
+  const [
+    deleteUser,
+    {
+      isSuccess: isDelSuccess,
+      isError: isDelError,
+      error: delError
+    }
+  ] = useDeleteUserMutation()
 
   const navigate = useNavigate()
 
-  const [username, setUsername] = useState('')
+  const [username, setUsername] = useState(user.username)
   const [validUsername, setValidUsername] = useState(false)
   const [password, setPassword] = useState('')
   const [validPassword, setValidPassword] = useState(false)
-  const [roles, setRoles] = useState('Employee')
+  const [roles, setRoles] = useState(user.roles)
+  const [active, setActive] = useState(user.active)
 
   // RegEx validation for username
   useEffect(()=> {
@@ -50,15 +61,14 @@ const NewUserForm = () => {
 
   // Check the status after calling the mutation
   useEffect(()=> {
-    if(isSuccess) {
+    if(isSuccess || isDelSuccess) {
       setUsername('')
       setPassword('')
-      setRoles([])
+      setRoles('')
       navigate('/dashboard/users')
     }
-  }, [isSuccess, navigate])
+  }, [isSuccess, isDelSuccess, navigate])
 
-  // Events handlers
   const handleUsernameChange = event => setUsername(event.target.value)
   const handlePasswordChange = event => setPassword(event.target.value)
 
@@ -70,14 +80,18 @@ const NewUserForm = () => {
     setRoles(values)
   }
 
-  // Validating if it can be saved
-  const canSave = [roles.length, validUsername, validPassword].every(Boolean) && !isLoading
+  const handleActiveChange = ()=> setActive(prev => !prev)
 
-  const handleSaveUserClick = async (event)=> {
-    event.preventDefault()
-    if(canSave) {
-      await addNewUser({ username, password, roles })
+  const handleSaveUserClick = async (event) => {
+    if(password) {
+      await updateUser({ id: user.id, username, password, roles, active })
+    } else {
+      await updateUser({ id: user.id, username, roles, active })
     }
+  }
+
+  const handleDeleteUserClick = async ()=> {
+    await deleteUser({ id: user.id })
   }
 
   const options = Object.values(ROLES).map(role => {
@@ -87,35 +101,52 @@ const NewUserForm = () => {
         value={role}
       >
         {role}
-      </option>
+      </option >
     )
   })
 
-  const errorClass = isError ? 'error-msg' : 'offscreen'
+  let canSave
+  if(password) {
+    canSave = [roles.length, validUsername, validPassword].every(Boolean) && !isLoading
+  } else {
+    canSave = [roles.length, validUsername].every(Boolean) && !isLoading
+  }
+
+  const errorClass = (isError || isDelError) ? 'error-msg' : 'offscreen'
   const validUserClass = username && !validUsername ? 'form-input-incomplete' : ''
   const validPassClass = password && !validPassword ? 'form-input-incomplete' : ''
   const validRolesClass = !Boolean(roles.length) ? 'form-input-incomplete' : ''
 
+  const errorContent = (error?.data?.message || delError?.data?.message) ?? ''
+
   const content = (
     <>
-      <p className={errorClass}>{error?.data?.message}</p>
-      {/*---- New user form ----*/}
-      <form className="form" onSubmit={handleSaveUserClick}>
+      <p className={errorClass}>{errorContent}</p>
+
+      <form className="form" onSubmit={e => e.preventDefault()}>
         <div className="form-title-row">
-          <h2>New User</h2>
+          <h2>Edit User</h2>
           <div className="form-action-buttons">
             <button
               className="icon-button"
               title="Save"
+              onClick={handleSaveUserClick}
               disabled={!canSave}
             >
               <FontAwesomeIcon icon={faSave} />
             </button>
+            <button
+              className="icon-button"
+              title="Delete"
+              onClick={handleDeleteUserClick}
+            >
+              <FontAwesomeIcon icon={faTrashCan} />
+            </button>
           </div>
         </div>
-        {/* Username input */}
         <label className="form-label" htmlFor="username">
-          Username: <span className="nowrap">[3-20 letters]</span></label>
+          Username: <span className="nowrap">[3-20 letters]</span>
+        </label>
         <input
           className={`form-input ${validUserClass}`}
           id="username"
@@ -125,9 +156,9 @@ const NewUserForm = () => {
           value={username}
           onChange={handleUsernameChange}
         />
-        {/* Password input */}
         <label className="form-label" htmlFor="password">
-          Password: <span className="nowrap">[4-12 chars incl. !@#$%]</span></label>
+          Password: <span className="nowrap">[empty = no change]</span> <span className="nowrap">[4-12 chars incl. !@#$%]</span>
+        </label>
         <input
           className={`form-input ${validPassClass}`}
           id="password"
@@ -136,9 +167,22 @@ const NewUserForm = () => {
           value={password}
           onChange={handlePasswordChange}
         />
-        {/* Roles input */}
+
+        <label className="form-label form-checkbox-container" htmlFor="user-active">
+          ACTIVE:
+          <input
+            className="form-checkbox"
+            id="user-active"
+            name="user-active"
+            type="checkbox"
+            checked={active}
+            onChange={handleActiveChange}
+          />
+        </label>
+
         <label className="form-label" htmlFor="roles">
-          ASSIGNED ROLES:</label>
+          ASSIGNED ROLES:
+        </label>
         <select
           id="roles"
           name="roles"
@@ -150,6 +194,7 @@ const NewUserForm = () => {
         >
           {options}
         </select>
+
       </form>
     </>
   )
@@ -157,4 +202,4 @@ const NewUserForm = () => {
   return content
 }
 
-export default NewUserForm
+export default EditUserForm

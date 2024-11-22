@@ -16,9 +16,9 @@ const User = ({ userId }) => {
   const navigate = useNavigate()
 
   if(user) {
-    const handleEdit = () => navigate(`/dash/users/${userId}`)
+    const handleEdit = () => navigate(`/dashboard/users/${userId}`)
     const userRolesString = user.roles.toString().replaceAll(',', ', ')
-    const cellStatus = user.active ? '' : 'table__cell--inactive'
+    const cellStatus = user.active ? '' : 'table-cell-inactive'
 
     return (
       <tr className="table-row user">
