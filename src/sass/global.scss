@@ -82,9 +82,13 @@ button {
 .error-msg {
   display: inline-block;
   background-color: color.$white;
-  color: firebrick;
+  color: color.$errorRed;
   padding: 0.25em;
   margin-bottom: 0.5em;
+}
+
+.nowrap {
+  white-space: nowrap;
 }
 
 .icon-button {

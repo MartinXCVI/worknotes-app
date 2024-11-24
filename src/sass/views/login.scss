@@ -4,9 +4,11 @@
 @use '../includes/typography' as font;
 @use '../includes/variables' as var;
 
+
 .login {
+  min-height: 90vh;
   flex-grow: 1;
-  border-top: 2px solid var(--BORDER-COLOR);
-  border-bottom: 2px solid var(--BORDER-COLOR);
+  border-top: 2px solid color.$white;
+  border-bottom: 2px solid color.$white;
   padding: 1em 0;
 }

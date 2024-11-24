@@ -82,9 +82,13 @@ button {
 .error-msg {
   display: inline-block;
   background-color: #fdfdfd;
-  color: firebrick;
+  color: #a01919;
   padding: 0.25em;
   margin-bottom: 0.5em;
+}
+
+.nowrap {
+  white-space: nowrap;
 }
 
 .icon-button {
@@ -280,6 +284,12 @@ tr {
   }
 }
 /*----- Includes -----*/
+.note-created,
+.note-updated,
+.note-username {
+  display: none;
+}
+
 .note-status {
   font-weight: bold;
 }
@@ -374,9 +384,10 @@ tr {
 /*----- Views -----*/
 /*----- Includes -----*/
 .login {
+  min-height: 90vh;
   flex-grow: 1;
-  border-top: 2px solid var(--BORDER-COLOR);
-  border-bottom: 2px solid var(--BORDER-COLOR);
+  border-top: 2px solid #fdfdfd;
+  border-bottom: 2px solid #fdfdfd;
   padding: 1em 0;
 }
 

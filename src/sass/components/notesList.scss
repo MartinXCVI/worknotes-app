@@ -5,11 +5,11 @@
 @use '../includes/variables' as var;
 
 
-// .note-created,
-// .note-updated,
-// .note-username {
-//   display: none;
-// }
+.note-created,
+.note-updated,
+.note-username {
+  display: none;
+}
 
 .note-status {
   font-weight: bold;
