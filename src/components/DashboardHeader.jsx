@@ -37,7 +37,10 @@ const DashboardHeader = () => {
   }, [isSuccess, navigate])
 
   // Logout handler that calls the sendLogout function
-  const handleLogoutClick = ()=> sendLogout()
+  const handleLogoutClick = ()=> {
+    sendLogout()
+    navigate('/')
+  }
 
   if(isLoading) return <p>Logging out...</p>
 

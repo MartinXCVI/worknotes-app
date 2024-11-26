@@ -5,7 +5,12 @@ import { faHouse } from "@fortawesome/free-solid-svg-icons"
 // React router imports
 import { useNavigate, useLocation } from "react-router-dom"
 
+// Custom hooks imports
+import useAuth from "../hooks/useAuth"
+
 const DashboardFooter = () => {
+
+  const { username, status } = useAuth()
 
   const navigate = useNavigate()
   const { pathname } = useLocation()
@@ -29,8 +34,8 @@ const DashboardFooter = () => {
   const content = (
     <footer className="dashboard-footer">
       {goHomeButton}
-      <p>current user: </p>
-      <p>status: </p>
+      <p>current user: {username}</p>
+      <p>status: {status}</p>
     </footer>
   )
   return content
