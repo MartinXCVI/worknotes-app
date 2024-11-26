@@ -32,10 +32,12 @@ const NewNoteForm = ({ users }) => {
 
   // Check the status after calling the mutation
   useEffect(()=> {
-    setTitle('')
-    setText('')
-    setUserId('')
-    navigate('/dashboard/notes')
+    if(isSuccess) {
+      setTitle('')
+      setText('')
+      setUserId('')
+      navigate('/dashboard/notes')
+    }
   }, [isSuccess, navigate])
 
   const handleTitleChange = event => setTitle(event.target.value)
