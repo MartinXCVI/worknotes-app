@@ -87,6 +87,11 @@ button {
   margin-bottom: 0.5em;
 }
 
+.error-msg a:any-link {
+  color: color.$errorRed;
+  text-decoration: underline;
+}
+
 .nowrap {
   white-space: nowrap;
 }

@@ -9,6 +9,9 @@ import { useDispatch } from 'react-redux'
 import { setCredentials } from './authSlice'
 import { useLoginMutation } from './authApiSlice'
 
+// Custom hooks
+import usePersist from '../../hooks/usePersist'
+
 
 const Login = () => {
 
@@ -17,6 +20,7 @@ const Login = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
+  const [persist, setPersist] = usePersist()
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -60,6 +64,7 @@ const Login = () => {
 
   const handleUserInput = event => setUsername(event.target.value)
   const handlePassInput = event => setPassword(event.target.value)
+  const handleToggle = ()=> setPersist(prev => !prev)
 
   const errorClass = errorMsg ? 'error-msg' : 'offscreen'
 
@@ -103,6 +108,17 @@ const Login = () => {
             required
           />
           <button className='form-submit-button'>Sign In</button>
+
+          <label htmlFor="persist" className='form-persist capital'>
+            <input 
+              type="checkbox"
+              className='form-checkbox'
+              id='persist'
+              onChange={handleToggle}
+              checked={persist}
+            />
+            trust this device
+          </label>
         </form>
       </main>
       <footer>
