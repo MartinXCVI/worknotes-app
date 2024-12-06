@@ -23,3 +23,10 @@
   flex-wrap: nowrap;
   gap: 0.5rem;
 }
+
+@media all and (min-width: 768px) {
+
+  .dashboard-header {
+    padding: 0.25rem 1rem;
+  }
+}

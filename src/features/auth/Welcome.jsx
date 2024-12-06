@@ -3,10 +3,13 @@ import { Link } from "react-router-dom"
 
 // Custom hooks imports
 import useAuth from '../../hooks/useAuth'
+import useTitle from "../../hooks/useTitle"
 
 const Welcome = () => {
 
   const { username, isManager, isAdmin } = useAuth()
+
+  useTitle(`WorkNotes: ${username}`)
 
   const date = new Date()
   const today = new Intl.DateTimeFormat('en-US', { dateStyle: 'full', timeStyle: 'long' }).format(date)

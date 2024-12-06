@@ -22,3 +22,64 @@
 .note-status-completed {
   color: color.$successGreen;
 }
+
+thead,
+tbody,
+tr {
+  display: contents;
+}
+
+.table {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  font-size: 1rem;
+  color: color.$black;
+  gap: 0.1em;
+}
+
+.table-button {
+  padding: 0.25em;
+  font-size: 1.5rem;
+  color: color.$black;
+}
+
+.table-thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.table-th,
+.table-cell {
+  background-color: color.$white;
+  text-align: left;
+  border: 1px solid color.$black;
+  padding: 0.5em;
+}
+
+.table-cell:last-child {
+  display: grid;
+  place-content: center;
+}
+
+.table-cell-inactive {
+  background-color: color.$grey;
+}
+
+@media all and (min-width: 768px) {
+
+  .note-created,
+  .note-updated,
+  .note-username {
+    display: block;
+  }
+
+  .table-notes {
+    grid-template-columns: repeat(3, 1fr) 2fr repeat(2, 1fr);
+  }
+
+  .table {
+    font-size: 1.5rem;
+  }
+}

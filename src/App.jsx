@@ -15,10 +15,15 @@ import NewNote from './features/notes/NewNote'
 import Prefetch from './features/auth/Prefetch'
 import PersistLogin from './features/auth/PersistLogin'
 import RequireAuth from './features/auth/RequireAuth'
+// Roles object import
 import { ROLES } from './config/roles'
+// Custom hooks imports
+import useTitle from './hooks/useTitle'
 
 
 function App() {
+
+  useTitle('WorkNotes App')
 
   return (
     <>

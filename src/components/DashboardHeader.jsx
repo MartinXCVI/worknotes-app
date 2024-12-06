@@ -14,6 +14,9 @@ import { useSendLogoutMutation } from '../features/auth/authApiSlice'
 // Custom hooks imports
 import useAuth from '../hooks/useAuth'
 
+// React spinners imports
+import { PulseLoader } from "react-spinners"
+
 // RegEx constants
 const dashRegEx = /^\/dashboard(\/)?$/
 const notesRegEx = /^\/dashboard\/notes(\/)?$/
@@ -126,7 +129,7 @@ const DashboardHeader = () => {
 
   let buttonContent
   if(isLoading) {
-    buttonContent = <p>Logging Out...</p>
+    buttonContent = <PulseLoader color={"#FFF"} />
   } else {
     buttonContent = (
       <>

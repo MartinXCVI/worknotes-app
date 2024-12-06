@@ -10,8 +10,13 @@ import { PulseLoader } from "react-spinners"
 // Components
 import EditUserForm from "./EditUserForm"
 
+// Custom hooks imports
+import useTitle from "../../hooks/useTitle"
+
 
 const EditUser = () => {
+
+  useTitle('WorkNotes: Edit User')
   
   const { id } = useParams()
   

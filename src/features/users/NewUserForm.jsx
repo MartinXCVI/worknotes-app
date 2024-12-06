@@ -14,11 +14,16 @@ import { faSave } from '@fortawesome/free-solid-svg-icons'
 // 'ROLES' object import
 import { ROLES } from '../../config/roles'
 
+// Custom hooks imports
+import useTitle from '../../hooks/useTitle'
+
 // Regular expressions for user name and password
 const userRegex = /^[A-z]{3,20}$/
 const passRegex = /^[A-z0-9!@#$%]{4,12}$/
 
 const NewUserForm = () => {
+  
+  useTitle('WorkNotes: New User')
 
   const [
     addNewUser,

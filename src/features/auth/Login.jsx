@@ -11,9 +11,15 @@ import { useLoginMutation } from './authApiSlice'
 
 // Custom hooks
 import usePersist from '../../hooks/usePersist'
+import useTitle from '../../hooks/useTitle'
+
+// React spinners imports
+import { PulseLoader } from 'react-spinners'
 
 
 const Login = () => {
+
+  useTitle('WorkNotes: Login')
 
   const userRef = useRef()
   const errorRef = useRef()
@@ -68,7 +74,7 @@ const Login = () => {
 
   const errorClass = errorMsg ? 'error-msg' : 'offscreen'
 
-  if(isLoading) return <p>Loading...</p>
+  if(isLoading) return <PulseLoader color={"#FFF"} />
 
   const content = (
     <section className='public'>

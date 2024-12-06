@@ -1,8 +1,20 @@
+// Redux imports
 import { useGetNotesQuery } from './notesApiSlice';
+
+// Components
 import Note from './Note';
+
+// Custom hooks imports
 import useAuth from '../../hooks/useAuth'
+import useTitle from '../../hooks/useTitle';
+
+// React spinners imports
+import { PulseLoader } from 'react-spinners';
+
 
 const NotesList = () => {
+
+  useTitle('WorkNotes: Notes List')
 
   const { username, isManager, isAdmin } = useAuth()
 
@@ -24,7 +36,7 @@ const NotesList = () => {
   let content
 
   if(isLoading) {
-    content = <p>Loading...</p>
+    content = <PulseLoader color={"#FFF"} />
   }
 
   if(isError) {

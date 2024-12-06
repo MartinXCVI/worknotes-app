@@ -1,8 +1,18 @@
+// Redux imports
 import { useGetUsersQuery } from './usersApiSlice'
 
+// Components
 import User from './User'
 
+// React spinners imports
+import { PulseLoader } from 'react-spinners'
+
+// Custom hooks imports
+import useTitle from '../../hooks/useTitle'
+
 const UsersList = () => {
+
+  useTitle('WorkNotes: Users List')
 
   const {
     data: users,
@@ -22,7 +32,7 @@ const UsersList = () => {
   let content
 
   if(isLoading) {
-    content = <p>Loading...</p>
+    content = <PulseLoader color={"#FFF"} />
   }
 
   if(isError) {

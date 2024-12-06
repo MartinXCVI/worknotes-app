@@ -116,12 +116,6 @@ button {
   transform: scale(1.2);
 }
 
-thead,
-tbody,
-tr {
-  display: contents;
-}
-
 @media all and (max-width: 575px) {
   p {
     font-size: 1rem;
@@ -232,6 +226,11 @@ tr {
   gap: 0.5rem;
 }
 
+@media all and (min-width: 768px) {
+  .dashboard-header {
+    padding: 0.25rem 1rem;
+  }
+}
 /*----- Includes -----*/
 .dashboard-container {
   min-height: 90vh;
@@ -239,6 +238,11 @@ tr {
   flex-grow: 1;
 }
 
+@media all and (min-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+}
 /*----- Includes -----*/
 .table {
   font-size: 1rem;
@@ -307,6 +311,63 @@ tr {
   color: #00ce67;
 }
 
+thead,
+tbody,
+tr {
+  display: contents;
+}
+
+.table {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  font-size: 1rem;
+  color: #151515;
+  gap: 0.1em;
+}
+
+.table-button {
+  padding: 0.25em;
+  font-size: 1.5rem;
+  color: #151515;
+}
+
+.table-thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.table-th,
+.table-cell {
+  background-color: #fdfdfd;
+  text-align: left;
+  border: 1px solid #151515;
+  padding: 0.5em;
+}
+
+.table-cell:last-child {
+  display: grid;
+  place-content: center;
+}
+
+.table-cell-inactive {
+  background-color: #808080;
+}
+
+@media all and (min-width: 768px) {
+  .note-created,
+  .note-updated,
+  .note-username {
+    display: block;
+  }
+  .table-notes {
+    grid-template-columns: repeat(3, 1fr) 2fr repeat(2, 1fr);
+  }
+  .table {
+    font-size: 1.5rem;
+  }
+}
 /*----- Includes -----*/
 .form {
   display: flex;

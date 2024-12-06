@@ -7,7 +7,12 @@ import { PulseLoader } from 'react-spinners'
 // New not form import
 import NewNoteForm from './NewNoteForm'
 
+// Custom hooks imports
+import useTitle from '../../hooks/useTitle'
+
 const NewNote = () => {
+
+  useTitle('WorkNotes: New Note')
 
   const { users } = useGetUsersQuery("usersList", {
     selectFromResult: ({ data })=> ({
