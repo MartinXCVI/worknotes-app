@@ -11,8 +11,13 @@ import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSave, faTrashCan } from "@fortawesome/free-solid-svg-icons"
 
+// Custom hooks imports
+import useAuth from "../../hooks/useAuth"
+
 
 const EditNoteForm = ({ note, users }) => {
+
+  const { isManager, isAdmin } = useAuth()
 
   const [
     updateNote,
@@ -94,6 +99,19 @@ const EditNoteForm = ({ note, users }) => {
 
   const errorContent = (error?.data?.message || delError?.data?.message) ?? ''
 
+  let deleteButton = null
+  if(isManager || isAdmin) {
+    deleteButton = (
+      <button
+        className="icon-button"
+        title="Delete"
+        onClick={handleDeleteNoteClick}
+      >
+        <FontAwesomeIcon icon={faTrashCan} />
+      </button>
+    )
+  }
+
   const content = (
     <>
       <p className={errorClass}>{errorContent}</p>
@@ -110,13 +128,8 @@ const EditNoteForm = ({ note, users }) => {
             >
               <FontAwesomeIcon icon={faSave} />
             </button>
-            <button
-                className="icon-button"
-                title="Delete"
-                onClick={handleDeleteNoteClick}
-            >
-              <FontAwesomeIcon icon={faTrashCan} />
-            </button>
+            {/* Conditional delete button for admins/managers only */}
+            {deleteButton}
           </div>
         </div>
         <label className="form-label" htmlFor="note-title">

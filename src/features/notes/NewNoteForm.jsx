@@ -49,7 +49,7 @@ const NewNoteForm = ({ users }) => {
   const handleSaveNoteClick = async (event) => {
     event.preventDefault()
     if(canSave) {
-      await addNewNote({ user: title, text, userId })
+      await addNewNote({ user: userId, title, text })
     }
   }
 
