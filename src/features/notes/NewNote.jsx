@@ -1,15 +1,24 @@
 // Redux imports
-import { useSelector } from 'react-redux'
-import { selectAllUsers } from '../users/usersApiSlice'
+import { useGetUsersQuery } from '../users/usersApiSlice'
+
+// React spinners imports
+import { PulseLoader } from 'react-spinners'
 
 // New not form import
 import NewNoteForm from './NewNoteForm'
 
 const NewNote = () => {
-  const users = useSelector(selectAllUsers)
+
+  const { users } = useGetUsersQuery("usersList", {
+    selectFromResult: ({ data })=> ({
+      users: data?.ids.map(id => data?.entities[id])
+    }),
+  })
 
   if(!users?.length) {
-    return <p>Not currently available!</p>
+    return (
+      <PulseLoader color={"#FFF"} />
+    )
   }
 
   const content = <NewNoteForm users={users} />
