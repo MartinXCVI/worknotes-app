@@ -3,7 +3,7 @@ import { memo } from "react";
 
 // Font Awesome imports
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { faUserPen } from "@fortawesome/free-solid-svg-icons";
 
 // React router imports
 import { useNavigate } from "react-router-dom";
@@ -35,8 +35,9 @@ const User = ({ userId }) => {
           <button
             className="icon-button table-button"
             onClick={handleEdit}
+            title="Edit User"
           >
-            <FontAwesomeIcon icon={faPenToSquare} />
+            <FontAwesomeIcon icon={faUserPen} />
           </button>
         </td>
       </tr>

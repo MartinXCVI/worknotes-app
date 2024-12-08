@@ -148,7 +148,7 @@ const DashboardHeader = () => {
       <header className="dashboard-header">
         <div className={`dashboard-header-container ${dashboardClass}`}>
           <Link to="/dashboard">
-            <h1 className="dashboard-header-title">workNotes</h1>
+            <h1 className="dashboard-header-title">WorkNotes</h1>
           </Link>
           <nav className="dashboard-header-nav">
             {buttonContent}

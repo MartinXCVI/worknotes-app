@@ -43,6 +43,7 @@ const Note = ({ noteId }) => {
             <button
               className="icon-button table-button"
               onClick={handleEdit}
+              title='Edit Note'
             >
               <FontAwesomeIcon icon={faPenToSquare} />
             </button>

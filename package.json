@@ -8,6 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "sass": "sass ./src/sass/styles.scss ./src/css/styles.css",
     "styles": "sass ./src/sass/styles.scss ./src/css/styles.css --watch"
   },
   "dependencies": {

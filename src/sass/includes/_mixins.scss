@@ -36,3 +36,27 @@
   border: 1px solid $bdC;
   border-radius: $bdR;
 }
+
+@mixin bgHeroImg($z, $bgImg, $opacity) {
+  content: '';
+  inset: 0;
+  position: absolute;
+  z-index: $z;
+  background-image: url($bgImg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: $opacity;
+}
+
+@mixin bgColor($z, $bgColor, $opacity) {
+  content: '';
+  inset: 0;
+  position: absolute;
+  z-index: $z;
+  background: $bgColor;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: $opacity;
+}

@@ -115,10 +115,10 @@ const EditNoteForm = ({ note, users }) => {
   const content = (
     <>
       <p className={errorClass}>{errorContent}</p>
-
+      {/*---- Edit note form ----*/}
       <form className="form" onSubmit={event => event.preventDefault()}>
         <div className="form-title-row">
-          <h2>Edit Note #{note.ticket}</h2>
+          <h2 className="capital">edit note #{note.ticket}</h2>
           <div className="form-action-buttons">
             <button
                 className="icon-button"
@@ -132,31 +132,35 @@ const EditNoteForm = ({ note, users }) => {
             {deleteButton}
           </div>
         </div>
-        <label className="form-label" htmlFor="note-title">
-          Title:
-        </label>
-        <input
-          className={`form-input ${validTitleClass}`}
-          id="note-title"
-          name="title"
-          type="text"
-          autoComplete="off"
-          value={title}
-          onChange={handleTitleChange}
-        />
-
-        <label className="form-label" htmlFor="note-text">
-          Text:
-        </label>
-        <textarea
-          className={`form-input form-input-text ${validTextClass}`}
-          id="note-text"
-          name="text"
-          value={text}
-          onChange={handleTextChange}
-        />
-        <div className="form-row">
-          <div className="form-divider">
+        {/* Title input */}
+        <div className="form-divider">
+          <label className="form-label" htmlFor="note-title">
+            Title:
+          </label>
+          <input
+            className={`form-input ${validTitleClass}`}
+            id="note-title"
+            name="title"
+            type="text"
+            autoComplete="off"
+            value={title}
+            onChange={handleTitleChange}
+          />
+        </div>
+        {/* Text input */}
+        <div className="form-divider">
+          <label className="form-label" htmlFor="note-text">
+            Text:
+          </label>
+          <textarea
+            className={`form-input form-input-text ${validTextClass}`}
+            id="note-text"
+            name="text"
+            value={text}
+            onChange={handleTextChange}
+          />
+        </div>
+          <div className="form-divider select-divider">
             <label className="form-label form-checkbox-container" htmlFor="note-completed">
               WORK COMPLETE:
               <input
@@ -168,6 +172,8 @@ const EditNoteForm = ({ note, users }) => {
                 onChange={handleCompletedChange}
               />
             </label>
+          </div>
+          <div className="form-divider select-divider">
             <label className="form-label form-checkbox-container" htmlFor="note-username">
               ASSIGNED TO:
             </label>
@@ -181,11 +187,10 @@ const EditNoteForm = ({ note, users }) => {
               {options}
             </select>
           </div>
-          <div className="form-divider">
+          <div className=" form-row">
             <p className="form-created">Created:<br />{created}</p>
             <p className="form-updated">Updated:<br />{updated}</p>
           </div>
-        </div>
       </form>
     </>
   )

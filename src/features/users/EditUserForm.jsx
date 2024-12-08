@@ -122,10 +122,10 @@ const EditUserForm = ({ user }) => {
   const content = (
     <>
       <p className={errorClass}>{errorContent}</p>
-
+      {/*---- Edit user form ----*/}
       <form className="form" onSubmit={e => e.preventDefault()}>
         <div className="form-title-row">
-          <h2>Edit User</h2>
+          <h2 className='capital'>edit user</h2>
           <div className="form-action-buttons">
             <button
               className="icon-button"
@@ -144,57 +144,67 @@ const EditUserForm = ({ user }) => {
             </button>
           </div>
         </div>
-        <label className="form-label" htmlFor="username">
-          Username: <span className="nowrap">[3-20 letters]</span>
-        </label>
-        <input
-          className={`form-input ${validUserClass}`}
-          id="username"
-          name="username"
-          type="text"
-          autoComplete="off"
-          value={username}
-          onChange={handleUsernameChange}
-        />
-        <label className="form-label" htmlFor="password">
-          Password: <span className="nowrap">[empty = no change]</span> <span className="nowrap">[4-12 chars incl. !@#$%]</span>
-        </label>
-        <input
-          className={`form-input ${validPassClass}`}
-          id="password"
-          name="password"
-          type="password"
-          value={password}
-          onChange={handlePasswordChange}
-        />
-
-        <label className="form-label form-checkbox-container" htmlFor="user-active">
-          ACTIVE:
+        {/* Username input */}
+        <div className="form-divider">
+          <label className="form-label" htmlFor="username">
+            Username: <span className="nowrap">[3-20 letters]</span>
+          </label>
           <input
-            className="form-checkbox"
-            id="user-active"
-            name="user-active"
-            type="checkbox"
-            checked={active}
-            onChange={handleActiveChange}
+            className={`form-input ${validUserClass}`}
+            id="username"
+            name="username"
+            type="text"
+            autoComplete="off"
+            value={username}
+            onChange={handleUsernameChange}
           />
-        </label>
-
-        <label className="form-label" htmlFor="roles">
-          ASSIGNED ROLES:
-        </label>
-        <select
-          id="roles"
-          name="roles"
-          className={`form-select ${validRolesClass}`}
-          multiple={true}
-          size="3"
-          value={roles}
-          onChange={handleRolesChange}
-        >
-          {options}
-        </select>
-
+        </div>
+        {/* Password input */}
+        <div className="form-divider">
+          <label className="form-label" htmlFor="password">
+            Password: <span className="nowrap">[empty = no change]</span> <span className="nowrap">[4-12 chars incl. !@#$%]</span>
+          </label>
+          <input
+            className={`form-input ${validPassClass}`}
+            id="password"
+            name="password"
+            type="password"
+            value={password}
+            onChange={handlePasswordChange}
+          />
+        </div>
+        {/* User active status checkbox */}
+        <div className="form-divider">
+          <label className="form-label form-checkbox-container" htmlFor="user-active">
+            ACTIVE:
+            <input
+              className="form-checkbox"
+              id="user-active"
+              name="user-active"
+              type="checkbox"
+              checked={active}
+              onChange={handleActiveChange}
+            />
+          </label>
+        </div>
+        {/* Roles input */}
+        <div className="form-divider select-divider-roles">
+          <label className="form-label" htmlFor="roles">
+            ASSIGNED ROLES:
+          </label>
+          <select
+            id="roles"
+            name="roles"
+            className={`form-select ${validRolesClass}`}
+            multiple={true}
+            size="3"
+            value={roles}
+            onChange={handleRolesChange}
+          >
+            {options}
+          </select>
+        </div>
+      {/* End of form */}
       </form>
     </>
   )

@@ -16,6 +16,10 @@ import useTitle from '../../hooks/useTitle'
 // React spinners imports
 import { PulseLoader } from 'react-spinners'
 
+// Font awesome imports
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faKey, faUser } from '@fortawesome/free-solid-svg-icons'
+
 
 const Login = () => {
 
@@ -78,7 +82,7 @@ const Login = () => {
 
   const content = (
     <section className='public'>
-      <header>
+      <header className='dashboard-header'>
         <h1>Employee Login</h1>
       </header>
       <main className='login'>
@@ -90,31 +94,34 @@ const Login = () => {
         >
           {errorMsg}
         </p>
-        <form className='form' onSubmit={handleSubmit}>
+        <form className='form login-form' onSubmit={handleSubmit}>
           {/* Username input */}
-          <label htmlFor="username">Username:</label>
-          <input 
-            className='form-input'
-            type="text"
-            id='username'
-            ref={userRef}
-            value={username}
-            onChange={handleUserInput}
-            autoComplete='off'
-            required
-          />
+          <div className="form-divider">
+            <label htmlFor="username"><FontAwesomeIcon icon={faUser} /> Username:</label>
+            <input 
+              className='form-input'
+              type="text"
+              id='username'
+              ref={userRef}
+              value={username}
+              onChange={handleUserInput}
+              autoComplete='off'
+              required
+            />
+          </div>
           {/* Password input */}
-          <label htmlFor="password">Password:</label>
-          <input
-            className='form-input'
-            type='password'
-            id='password'
-            onChange={handlePassInput}
-            value={password}
-            required
-          />
-          <button className='form-submit-button'>Sign In</button>
-
+          <div className='form-divider'>
+            <label htmlFor="password"><FontAwesomeIcon icon={faKey} /> Password:</label>
+            <input
+              className='form-input'
+              type='password'
+              id='password'
+              onChange={handlePassInput}
+              value={password}
+              required
+            />
+          </div>
+          {/* Login persist checkbox */}
           <label htmlFor="persist" className='form-persist capital'>
             <input 
               type="checkbox"
@@ -123,11 +130,13 @@ const Login = () => {
               onChange={handleToggle}
               checked={persist}
             />
-            trust this device
+            i trust this device
           </label>
+          {/* Sign in button */}
+          <button className='form-submit-button'>Sign In</button>
         </form>
       </main>
-      <footer>
+      <footer className='dashboard-footer'>
         <Link to="/">Back to Home</Link>
       </footer>
     </section>

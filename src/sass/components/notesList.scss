@@ -40,7 +40,7 @@ tr {
 
 .table-button {
   padding: 0.25em;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: color.$black;
 }
 
@@ -56,6 +56,35 @@ tr {
   text-align: left;
   border: 1px solid color.$black;
   padding: 0.5em;
+}
+
+.table-th {
+  font-size: 1.35rem;
+  background-color: color.$lightBlack;
+  color: color.$white;
+  border-top: 2px solid color.$black;
+  &:first-of-type {
+    border-top-left-radius: 0.75rem;
+  }
+  &:last-of-type {
+    border-top-right-radius: 0.75rem;
+  }
+}
+
+tbody tr:last-of-type td:first-of-type {
+  border-bottom-left-radius: 0.75rem;
+}
+
+tbody tr:last-of-type td:last-of-type {
+  border-bottom-right-radius: 0.75rem;
+}
+
+tbody tr:nth-of-type(even) td {
+  background-color: color.$lighterGrey;
+}
+
+.table-cell {
+  font-size: 1rem;
 }
 
 .table-cell:last-child {

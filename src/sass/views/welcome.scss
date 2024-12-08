@@ -11,9 +11,37 @@
   p.date {
     font-family: font.$monoFont;
     font-size: 1.1rem;
+    text-align: center;
+  }
+  .welcome-section-options {
+    @include mx.flexCol(center, flex-start);
+    gap: 2rem;
+    p a {
+      padding: 0.5rem;
+    }
   }
 }
 
-.welcome-section a::before {
-  content: "➜ "
+.welcome-section-icon {
+  margin-right: 0.35rem;
+}
+
+@media screen and (max-width: 767px) {
+
+  .welcome-section {
+    p.date {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  .welcome-section {
+    gap: 3rem;
+  }
+
+  .welcome-section-options {
+    gap: 1.25rem;
+  }
 }

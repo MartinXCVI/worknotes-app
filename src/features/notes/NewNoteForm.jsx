@@ -74,7 +74,7 @@ const NewNoteForm = ({ users }) => {
 
       <form className="form" onSubmit={handleSaveNoteClick}>
         <div className="form-title-row">
-          <h2>New Note</h2>
+          <h2 className="capital">new note</h2>
           <div className="form-action-buttons">
             <button
               className="icon-button"
@@ -85,40 +85,46 @@ const NewNoteForm = ({ users }) => {
             </button>
           </div>
         </div>
-        <label className="form-label" htmlFor="title">
-          Title:
-        </label>
-        <input
-          className={`form-input ${validTitleClass}`}
-          id="title"
-          name="title"
-          type="text"
-          autoComplete="off"
-          value={title}
-          onChange={handleTitleChange}
-        />
-        <label className="form-label" htmlFor="text">
-          Text:
-        </label>
-        <textarea
-          className={`form-input form-input-text ${validTextClass}`}
-          id="text"
-          name="text"
-          value={text}
-          onChange={handleTextChange}
-        />
-        <label className="form-label form-checkbox-container" htmlFor="username">
-          ASSIGNED TO:
-        </label>
-        <select
-          id="username"
-          name="username"
-          className="form-select"
-          value={userId}
-          onChange={handleUserIdChange}
-        >
-          {options}
-        </select>
+        <div className="form-divider">
+          <label className="form-label capital" htmlFor="title">
+            title:
+          </label>
+          <input
+            className={`form-input ${validTitleClass}`}
+            id="title"
+            name="title"
+            type="text"
+            autoComplete="off"
+            value={title}
+            onChange={handleTitleChange}
+          />
+        </div>
+        <div className="form-divider">
+          <label className="form-label" htmlFor="text">
+            Text:
+          </label>
+          <textarea
+            className={`form-input form-input-text ${validTextClass}`}
+            id="text"
+            name="text"
+            value={text}
+            onChange={handleTextChange}
+          />
+        </div>
+        <div className="form-divider select-divider">
+          <label className="form-label form-checkbox-container" htmlFor="username">
+            ASSIGNED TO:
+          </label>
+          <select
+            id="username"
+            name="username"
+            className="form-select"
+            value={userId}
+            onChange={handleUserIdChange}
+          >
+            {options}
+          </select>
+        </div>
       </form>
     </>
   )

@@ -13,13 +13,21 @@
 
 .public-main {
   width: 100%;
+  @include mx.flexColCenter();
   flex-grow: 1;
   border-top: 2px solid color.$white;
   border-bottom: 2px solid color.$white;
   padding: 1rem 0;
+  gap: 1rem;
 }
 
 .public-address {
   margin-top: 1rem;
   line-height: 1.5;
+  text-align: center;
+  line-height: 2;
+}
+
+.login-btn {
+  padding: 0.5rem;
 }

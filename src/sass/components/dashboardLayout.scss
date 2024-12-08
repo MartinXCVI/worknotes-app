@@ -5,8 +5,9 @@
 @use '../includes/variables' as var;
 
 .dashboard-container {
-  min-height: 90vh;
-  padding: 0.75rem 0.5rem 0.5rem;
+  min-height: 100%;
+  @include mx.flexColCenter();
+  padding: 1rem 0.5rem;
   flex-grow: 1;
 }
 
@@ -14,5 +15,12 @@
 
   .dashboard-container {
     padding: 1rem;
+  }
+}
+
+@media all and (max-width: 991px) {
+
+  .dashboard-container {
+    padding-block: 2rem;
   }
 }

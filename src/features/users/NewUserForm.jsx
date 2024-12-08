@@ -107,7 +107,7 @@ const NewUserForm = () => {
       {/*---- New user form ----*/}
       <form className="form" onSubmit={handleSaveUserClick}>
         <div className="form-title-row">
-          <h2>New User</h2>
+          <h2 className='capital'>new user</h2>
           <div className="form-action-buttons">
             <button
               className="icon-button"
@@ -119,42 +119,51 @@ const NewUserForm = () => {
           </div>
         </div>
         {/* Username input */}
-        <label className="form-label" htmlFor="username">
-          Username: <span className="nowrap">[3-20 letters]</span></label>
-        <input
-          className={`form-input ${validUserClass}`}
-          id="username"
-          name="username"
-          type="text"
-          autoComplete="off"
-          value={username}
-          onChange={handleUsernameChange}
-        />
+        <div className="form-divider">
+          <label className="form-label" htmlFor="username">
+            Username: </label>
+          <input
+            className={`form-input ${validUserClass}`}
+            id="username"
+            name="username"
+            type="text"
+            autoComplete="off"
+            value={username}
+            onChange={handleUsernameChange}
+          />
+          <span className="nowrap">[3-20 letters]</span>
+        </div>
         {/* Password input */}
-        <label className="form-label" htmlFor="password">
-          Password: <span className="nowrap">[4-12 chars incl. !@#$%]</span></label>
-        <input
-          className={`form-input ${validPassClass}`}
-          id="password"
-          name="password"
-          type="password"
-          value={password}
-          onChange={handlePasswordChange}
-        />
+        <div className="form-divider">
+          <label className="form-label" htmlFor="password">
+            Password:</label>
+          <input
+            className={`form-input ${validPassClass}`}
+            id="password"
+            name="password"
+            type="password"
+            value={password}
+            onChange={handlePasswordChange}
+          />
+          <span className="nowrap">[4-12 chars incl. !@#$%]</span>
+        </div>
         {/* Roles input */}
-        <label className="form-label" htmlFor="roles">
-          ASSIGNED ROLES:</label>
-        <select
-          id="roles"
-          name="roles"
-          className={`form-select ${validRolesClass}`}
-          multiple={true}
-          size="3"
-          value={[roles]}
-          onChange={handleRolesChange}
-        >
-          {options}
-        </select>
+        <div className="form-divider select-divider-roles">
+          <label className="form-label" htmlFor="roles">
+            ASSIGNED ROLES:</label>
+          <select
+            id="roles"
+            name="roles"
+            className={`form-select ${validRolesClass}`}
+            multiple={true}
+            size="3"
+            value={[roles]}
+            onChange={handleRolesChange}
+          >
+            {options}
+          </select>
+        </div>
+      {/* End of form */}
       </form>
     </>
   )
