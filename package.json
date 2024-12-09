@@ -11,6 +11,10 @@
     "sass": "sass ./src/sass/styles.scss ./src/css/styles.css",
     "styles": "sass ./src/sass/styles.scss ./src/css/styles.css --watch"
   },
+  "keywords": [],
+  "author": "MartinXCVI",
+  "license": "ISC",
+  "description": "WorkNotes MERN project's frontend application",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
