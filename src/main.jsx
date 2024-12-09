@@ -11,6 +11,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { store } from './app/store.js'
 import { Provider } from 'react-redux'
 
+// Disable react dev tools import
+import { disableReactDevTools } from '@fvilers/disable-react-devtools'
+
+if(process.env.NODE_ENV === 'production') disableReactDevTools()
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
