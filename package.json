@@ -1,8 +1,21 @@
 {
-  "name": "worknotes",
+  "name": "worknotes-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": "MartinXCVI",
+  "license": "MIT",
+  "description": "Frontend application for the WorkNotes MERN project. Built with React, TypeScript, Redux Toolkit, SCSS and Vite.",
+  "keywords": [
+    "react",
+    "typescript",
+    "vite",
+    "redux",
+    "mern",
+    "frontend",
+    "scss",
+    "notes-app"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -11,10 +24,6 @@
     "sass": "sass ./src/sass/styles.scss ./src/css/styles.css",
     "styles": "sass ./src/sass/styles.scss ./src/css/styles.css --watch"
   },
-  "keywords": [],
-  "author": "MartinXCVI",
-  "license": "ISC",
-  "description": "WorkNotes MERN project's frontend application",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
@@ -30,8 +39,9 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@types/node": "^24.0.10",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react": "^4.3.3",
     "eslint": "^9.13.0",
     "eslint-plugin-react": "^7.37.2",
@@ -39,6 +49,8 @@
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.11.0",
     "sass": "^1.81.0",
-    "vite": "^5.4.10"
+    "typescript": "^5.8.3",
+    "vite": "^5.4.10",
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }
